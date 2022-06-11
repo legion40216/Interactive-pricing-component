@@ -94,13 +94,7 @@ header span:nth-child(2)
 
 }
 
-.stats{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin:5px 0;
 
-}
 
 .progress input{
   width: 100%;
@@ -210,10 +204,11 @@ li::before{
   height: 1px;
 }
 .top{
-  display: flex;
- flex-direction: column;
- gap: 35px;
-  padding:25px 50px;
+  display: grid;
+ grid-template-columns: auto auto;
+
+ gap: 45px;
+  padding:25px 40px;
 }
 
 div.monthly-billing > *{
@@ -242,6 +237,96 @@ div.monthly-billing > span:nth-child(1){
 
 }
 
+   .monthly-billing{
+    grid-column: 2 ;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+   }
+
+   .priceing{
+    grid-column: 1 / span 2;
+   }
+
+   .progress{
+    grid-column: 1 / span 2;
+   }
+
+   .pageview-container{
+     width: 100%;
+     grid-column: 1 ;
+     grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap:2px
+   }
+
+   .yearly_dis_mobile{
+     display: none;
+     color: hsl(15, 100%, 70%) !important;
+  background: hsl(14, 92%, 95%);
+  padding: 3px 5px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 800;
+  margin-left: 5px;
+  text-align: center;
+   }
+
+
+  @media screen and (max-width: 580px){
+   header{
+    margin-bottom: 25px;
+   }
+
+ .interactive-pricing{
+   min-width: 280px; 
+   }
+   .top{
+     padding: 20px 22px;
+   }
+   .bottom{
+     grid-template-columns: 1fr;
+     grid-template-rows: 1fr 1fr;
+     padding: 25px 25px;
+     padding-bottom: 10px;
+   }
+
+   .monthly-billing{
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    justify-content: center;
+   }
+
+   .priceing{
+    grid-column: 1 / span 2;
+   }
+
+   .progress{
+    grid-column: 1 / span 2;
+   }
+
+   .pageview-container{
+     width: 100%;
+    grid-column: 1 / span 2;
+    justify-content: center;
+    align-items: center;
+   }
+
+   .bottom_list{
+    display: grid;
+    justify-content: center;
+   }
+   .yearly_dis_mobile{
+     display: inline-block;
+   }
+   .yearly_dis{
+     display: none;
+   }
+}
+
 </style>
 
 
@@ -256,14 +341,14 @@ div.monthly-billing > span:nth-child(1){
 
     <div class="interactive-body">
       <div class="top">
-      <div class="stats">
+     
         <div class="pageview-container">
           <span>100k </span><span>pageviews</span> 
         </div>
         <div class="monthly-billing">
           <span>$16.00</span><span>  /month</span>
         </div>
-      </div>
+      
 
        <div class="progress">
         <input class="myrange" type="range" min="0" max="4" step="1" value="2" >
@@ -271,7 +356,9 @@ div.monthly-billing > span:nth-child(1){
 
     <div class="priceing">
       <span>Monthly Billing <input type="checkbox"></span>
-      <span class="yearly">Yearly Billing <span class="yearly_dis">25% discount</span></span>
+      <span class="yearly">Yearly Billing 
+        <span class="yearly_dis">25% discount</span>
+        <span class="yearly_dis_mobile">-25%</span></span>
     </div>
   </div>
     <div class="line"></div>
